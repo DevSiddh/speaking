@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 IELTS Co-Pilot
 
-## Getting Started
+AI-powered Speaking & Writing practice for IELTS Band 7.0+.
 
-First, run the development server:
+Built with **Next.js**, powered by **Groq** (free LLM API), and designed as a responsive **PWA**.
+
+---
+
+## 🚀 One-Click Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FDevSiddh%2Fspeaking&env=GROQ_API_KEY&envDescription=Your%20Groq%20API%20key%20for%20LLM%20grading&envLink=https%3A%2F%2Fconsole.groq.com%2Fkeys&project-name=ielts-copilot&repository-name=ielts-copilot)
+
+### Required Environment Variable
+
+| Variable | Get it from |
+|----------|-------------|
+| `GROQ_API_KEY` | https://console.groq.com/keys (free) |
+
+---
+
+## 🛠️ Local Development
 
 ```bash
+git clone https://github.com/DevSiddh/speaking.git
+cd speaking
+npm install
+
+# Add your Groq key
+echo "GROQ_API_KEY=your_key_here" > .env.local
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Speaking | Writing |
+|----------|---------|
+| 🎤 Browser mic capture (MediaRecorder) | ✍️ Distraction-free essay editor |
+| 🌊 Real-time waveform visualizer | ⏱️ Live timer + word counter |
+| 🗣️ AI Interlocutor (fast responses) | 📝 Structured IELTS grading |
+| 📊 Fluency feedback with fillers highlighted | 🔍 4-criteria rubric breakdown |
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🏗️ Architecture
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Frontend**: Next.js 16 + React + Tailwind CSS
+- **State**: Zustand (persisted)
+- **LLMs**: Groq (`llama-3.3-70b` for grading, `llama-3.1-8b` for chat)
+- **Speech**: Web Speech API + MediaRecorder
+- **Deployment**: Vercel Edge Functions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📄 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
